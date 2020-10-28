@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Route, withRouter} from 'react-router-dom'
+import {HashRouter, Route, withRouter} from 'react-router-dom'
 import './App.css'
 import Login from './components/Login/Login'
 import Navigation from './components/Navigation/Navigation'
@@ -52,13 +52,13 @@ const AppContainer = compose(
 
 export const SocialApp = (props) => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={store}>
         <React.StrictMode>
           <AppContainer/>
         </React.StrictMode>
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
