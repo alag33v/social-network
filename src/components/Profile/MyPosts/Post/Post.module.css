@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  max-width: 500px;
+}
+
+.image {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 25px;
+}
+
+.text {
+  font-size: 24px;
+  color: rgb(233, 213, 213);
+  margin: 0;
+}
+
+.like {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(155, 255, 23);
+}

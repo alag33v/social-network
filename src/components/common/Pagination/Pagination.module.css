@@ -1,0 +1,31 @@
+.numbers {
+  margin-bottom: 25px;
+}
+
+.activePage {
+  font-size: 22px;
+  font-weight: 400;
+  color: gold;
+  min-width: 40px;
+  height: 40px;
+  border: 1px solid gold;
+  border-radius: 5px;
+  background-color: transparent;
+  margin: 0 10px 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.ordinaryPage {
+  font-size: 22px;
+  font-weight: 400;
+  color: #343131;
+  min-width: 40px;
+  height: 40px;
+  border: 1px solid #343131;
+  border-radius: 5px;
+  background-color: transparent;
+  margin: 0 10px 10px;
+  outline: none;
+  cursor: pointer;
+}

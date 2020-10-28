@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+}
+
+.error {
+  border: 3px solid red;
+}
+.errorText {
+  font-size: 18px;
+  font-weight: 400;
+  color: #5eee3c;
+  max-width: 100%;
+}
+
+.formError {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: #f37e7e;
+  border: 2px solid darkred;
+  margin: 5px;
+  padding: 5px;
+}

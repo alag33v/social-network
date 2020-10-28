@@ -1,0 +1,79 @@
+.dialogs {
+  margin-right: auto;
+  margin-left: 50px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 250px 300px;
+  position: relative;
+}
+
+/*.wrapper::after {*/
+/*  content: "";*/
+/*  width: 350px;*/
+/*  top: 58%;*/
+/*  left: 50%;*/
+/*  transform: translateX(-75%) rotate(90deg);*/
+/*  border: 1px solid rgb(169, 166, 171);*/
+/*  position: absolute;*/
+/*}*/
+
+.userName {
+  font-size: 18px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  margin-bottom: 15px;
+  display: block;
+}
+
+.messages {
+  font-size: 16px;
+  margin-top: -10px;
+}
+
+.message {
+  margin: 0 0 20px;
+}
+
+.active {
+  color: rgb(231, 207, 73);
+  transition: 0.3s;
+}
+
+.textarea {
+  font-family: inherit;
+  font-size: 16px;
+  width: 250px;
+  height: 80px;
+  padding: 5px 10px;
+  resize: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  width: 250px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  display: block;
+  outline: none;
+  cursor: pointer;
+}

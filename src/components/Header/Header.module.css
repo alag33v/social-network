@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image {
+  padding-top: 20px;
+  width: 60px;
+}
+
+.login {
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #84e1e2;
+}
