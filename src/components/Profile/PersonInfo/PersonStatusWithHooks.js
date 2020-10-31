@@ -25,7 +25,10 @@ const PersonStatusWithHooks = props => {
     <div>
       {editMode
         ? <input type="text" onChange={onStatusChange} onBlur={deactivateEditMode} value={status} autoFocus/>
-        : <p onDoubleClick={activateEditMode}>{props.status || '---'}</p>}
+        : <div>
+          <span>Status: </span>
+          <span onDoubleClick={activateEditMode}>{props.status || '---'}</span>
+        </div>}
     </div>
   )
 }

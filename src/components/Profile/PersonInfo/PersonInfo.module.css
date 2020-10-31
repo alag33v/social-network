@@ -20,3 +20,10 @@
 .city {
   margin: 10px 0;
 }
+
+.photo {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  cursor: pointer;
+}
