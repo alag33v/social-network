@@ -7,12 +7,14 @@ import {login} from '../../redux/auth-reducer'
 import {Redirect} from 'react-router-dom'
 import style from '../common/FormsControls/FormsControls.module.css'
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
   return (
     <form onSubmit={handleSubmit}>
       {createField(Input, "email", "Email", [required])}
       {createField(Input, "password", "Password", [required], {type: "password"})}
       {createField(Input, "rememberMe", null, null, {type: "checkbox"}, "Remember Me")}
+      {captchaUrl && <img src={captchaUrl} alt=""/>}
+      {captchaUrl && createField(Input, "captcha", "Symbols", [required])}
       {error &&
       <div className={style.formError}>
         {error}
@@ -28,7 +30,7 @@ const LoginReduxForm = reduxForm({
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    props.login(formData.email, formData.password, formData.rememberMe)
+    props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
   }
 
   if (props.isAuth) {
@@ -38,13 +40,14 @@ const Login = (props) => {
   return (
     <div>
       <h1>Login</h1>
-      <LoginReduxForm onSubmit={onSubmit}/>
+      <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
     </div>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
+    captchaUrl: state.auth.captchaUrl,
     isAuth: state.auth.isAuth
   }
 }
