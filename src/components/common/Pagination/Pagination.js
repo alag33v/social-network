@@ -16,9 +16,11 @@ const Pagination = ({totalUsersCount, pageSize, currentPage, onPageChanged, port
 
   return (
     <div className={style.numbers}>
-      {portionNumber > 1 && <button onClick={() => {
+      {portionNumber > 1 && <button className={style.btn} onClick={() => {
         setPortionNumber(portionNumber - 1)
-      }}>PREV</button>}
+      }}>
+        <div className={style.arrowPrev}></div>
+      </button>}
       {pages
         .filter(page => page >= leftPortionPageNumber && page <= rightPortionNumber)
         .map(page => {
@@ -29,9 +31,11 @@ const Pagination = ({totalUsersCount, pageSize, currentPage, onPageChanged, port
                          }}>{page}</button>
         })}
       {portionCount > portionNumber &&
-      <button onClick={() => {
+      <button className={style.btn} onClick={() => {
         setPortionNumber(portionNumber + 1)
-      }}>NEXT</button>}
+      }}>
+        <div className={style.arrowNext}></div>
+      </button>}
     </div>
   )
 }

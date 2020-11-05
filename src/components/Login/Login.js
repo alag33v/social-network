@@ -10,16 +10,18 @@ import style from '../common/FormsControls/FormsControls.module.css'
 const LoginForm = ({handleSubmit, error, captchaUrl}) => {
   return (
     <form onSubmit={handleSubmit}>
-      {createField(Input, "email", "Email", [required])}
-      {createField(Input, "password", "Password", [required], {type: "password"})}
-      {createField(Input, "rememberMe", null, null, {type: "checkbox"}, "Remember Me")}
-      {captchaUrl && <img src={captchaUrl} alt=""/>}
-      {captchaUrl && createField(Input, "captcha", "Symbols", [required])}
-      {error &&
-      <div className={style.formError}>
-        {error}
-      </div>}
-      <button>Submit</button>
+      <div className={style.login__input}>{createField(Input, "email", "Email", [required])}</div>
+      <div className={style.login__input}>
+        {createField(Input, "password", "Password", [required], {type: "password"})}
+      </div>
+      <div className={style.login__checkbox}>
+        {createField(Input, "rememberMe", null, null, {type: "checkbox"}, "Remember Me")}
+      </div>
+      {captchaUrl && <img className={style.captcha} src={captchaUrl} alt=""/>}
+      <div className={style.captcha__text}>{captchaUrl && createField(Input, "captcha", "Symbols", [required])}</div>
+
+      {error && <div className={style.formError}>{error}</div>}
+      <button className={style.btnSubmit}>Submit</button>
     </form>
   )
 }
@@ -38,8 +40,8 @@ const Login = (props) => {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className={style.login}>
+      <h2 className={style.login__title}>Login</h2>
       <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
     </div>
   )

@@ -21,14 +21,8 @@ const User = ({user, followingInProgress, follow, unfollow}) => {
                     }}>Follow</button>}
       </div>
       <div className={style.content}>
-        <div className={style.content__left}>
-          <h3 className={style.name}>{user.name}</h3>
-          <p className={style.text}>{user.status}</p>
-        </div>
-        <div className={style.content__right}>
-          <h4 className={style.country}>{'Country'}</h4>
-          <h4 className={style.city}>{'City'}</h4>
-        </div>
+        <h3 className={style.name}>Name: {user.name}</h3>
+        <p className={style.text}>id: {user.id}</p>
       </div>
     </div>
   )

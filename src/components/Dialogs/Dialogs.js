@@ -33,8 +33,10 @@ const Dialogs = (props) => {
   }
 
   return (
-    <div className={style.dialogs}>
-      <h2 className={style.title}>Dialogs</h2>
+    <>
+      <div className={style.dialogs__titleWrapper}>
+        <h2 className={style.dialogs__title}>Dialogs</h2>
+      </div>
       <div className={style.wrapper}>
         <div className={style.users}>
           {usersElements}
@@ -44,7 +46,7 @@ const Dialogs = (props) => {
           <AddMessageFormRedux onSubmit={addNewMessage}/>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

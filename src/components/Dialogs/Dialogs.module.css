@@ -1,40 +1,59 @@
-.dialogs {
-  margin-right: auto;
-  margin-left: 50px;
-  width: 100%;
-  max-width: 100%;
+.dialogs__titleWrapper  {
+  text-align: center;
+  margin: 5px 0 30px;
 }
 
-.title {
-  font-size: 50px;
+.dialogs__title {
+  font-size: 36px;
   font-weight: 700;
   text-align: center;
-  margin: 0 auto;
-  text-align: center;
+  color: #fff;
+  padding-bottom: 4px;
+  border-bottom: 3px solid #fff;
+  display: inline;
 }
 
 .wrapper {
   display: flex;
-  justify-content: space-between;
-  padding: 20px 250px 300px;
-  position: relative;
 }
 
 .userName {
-  font-size: 18px;
+  font-size: 22px;
   text-decoration: none;
-  color: rgb(0, 0, 0);
-  margin-bottom: 15px;
+  color: #fff;
+  margin: 0 0 15px 20px;
   display: block;
 }
 
 .messages {
-  font-size: 16px;
-  margin-top: -10px;
+  font-size: 22px;
+  color: rgb(233, 213, 213);
+  margin-left: 250px;
 }
 
 .message {
-  margin: 0 0 20px;
+  margin: 0 0 15px;
+  max-width: 300px;
+  position: relative;
+}
+
+.message::before {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  top: 50%;
+  left: -50px;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+.message:nth-child(2n + 1)::before {
+  background: hotpink;
+}
+
+.message:nth-child(2n)::before {
+  background: yellowgreen;
 }
 
 .active {
@@ -43,27 +62,39 @@
 }
 
 .textarea {
-  font-family: inherit;
-  font-size: 16px;
-  width: 250px;
-  height: 80px;
-  padding: 5px 10px;
+  font-size: 22px;
+  width: 400px;
+  min-height: 120px;
+  color: rgb(233, 213, 213);
+  background-color: transparent;
+  display: block;
+  margin: 25px 0 20px;
+  padding: 15px;
+  border: 2px solid rgb(212, 221, 208);
+  border-radius: 5px;
   resize: none;
-  cursor: pointer;
   outline: none;
+  cursor: pointer;
 }
 
 .btn {
-  font-family: inherit;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 400;
   letter-spacing: 0.05em;
   width: 250px;
-  height: 30px;
+  height: 35px;
+  color: #fff;
   background-color: transparent;
+  margin: 0 auto 25px;
   border: 2px solid #fff;
-  border-radius: 15px;
+  border-radius: 30px;
   display: block;
+  transition: 0.4s;
   outline: none;
   cursor: pointer;
+}
+
+.btn:hover {
+  color: #2f1a5a;
+  background-color: #fff;
 }

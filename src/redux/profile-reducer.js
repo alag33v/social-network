@@ -13,7 +13,7 @@ const initialState = {
     {id: 2, message: 'Я горжусь тобой', likes: 18},
     {id: 3, message: 'Весь твой труд не останется без внимания', likes: 78},
     {id: 4, message: 'Не будь слишком строгим к себе', likes: 40},
-    {id: 4, message: 'Совершать ошибки – совершенно нормально', likes: 38}
+    {id: 5, message: 'Совершать ошибки – совершенно нормально', likes: 38}
   ],
   profile: null,
   status: ''

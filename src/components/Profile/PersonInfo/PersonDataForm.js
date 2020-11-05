@@ -7,7 +7,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
   return (
     <form onSubmit={handleSubmit}>
       <button className={style.btnSave}>Save</button>
-      {error && <div className={style.formError}>{error}</div>}
+      {error && <div className={style.formErrorSave}>{error}</div>}
       <div className={style.name}>FullName: {createField(Input, 'fullName', 'Full name')}</div>
       <div className={style.job}>
         Looking for a job? {createField(Input, 'lookingForAJob', null, null, {type: 'checkbox'})}

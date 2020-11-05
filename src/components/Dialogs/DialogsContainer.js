@@ -1,4 +1,3 @@
-
 import {addMessageCreator} from './../../redux/dialogs-reducer'
 import Dialogs from './Dialogs'
 import {compose} from 'redux'

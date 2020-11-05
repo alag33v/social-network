@@ -1,4 +1,7 @@
 .numbers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 25px;
 }
 
@@ -19,13 +22,38 @@
 .ordinaryPage {
   font-size: 22px;
   font-weight: 400;
-  color: #343131;
+  color: #fff;
   min-width: 40px;
   height: 40px;
-  border: 1px solid #343131;
+  border: 1px solid #fff;
   border-radius: 5px;
   background-color: transparent;
   margin: 0 10px 10px;
   outline: none;
   cursor: pointer;
+}
+
+.btn {
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.arrowPrev {
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 8px;
+  margin-top: -5px;
+  transform: rotate(135deg);
+}
+
+.arrowNext {
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 8px;
+  margin-top: -5px;
+  transform: rotate(-45deg);
 }
