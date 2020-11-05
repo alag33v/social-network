@@ -1,5 +1,5 @@
 import React from 'react'
-import {HashRouter, Route, withRouter} from 'react-router-dom'
+import {HashRouter, Route, withRouter, Switch, Redirect} from 'react-router-dom'
 import './App.css'
 import Login from './components/Login/Login'
 import Navigation from './components/Navigation/Navigation'
@@ -16,8 +16,16 @@ const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileCo
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 
 class App extends React.Component {
+  catchAllUnhandledErrors = (promiseRejectionEvent) => {
+  }
+
   componentDidMount() {
     this.props.initializeApp()
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors)
   }
 
   render() {
@@ -26,14 +34,24 @@ class App extends React.Component {
     }
 
     return (
-      <div className="container">
+      <div className="main">
         <HeaderContainer/>
-        <div className="wrapper">
-          <Navigation/>
-          <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
-          <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
-          <Route path="/users" render={() => <UsersContainer/>}/>
-          <Route path="/login" render={() => <Login/>}/>
+        <div className="wave"></div>
+        <div className="background">
+          <div className="container">
+            <div className="wrapper">
+              <Navigation/>
+              <div className="border">
+                <Switch>
+                  <Redirect exact from="/" to="/profile"/>
+                  <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
+                  <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
+                  <Route path="/users" render={() => <UsersContainer/>}/>
+                  <Route path="/login" render={() => <Login/>}/>
+                </Switch>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )
@@ -54,9 +72,7 @@ export const SocialApp = (props) => {
   return (
     <HashRouter>
       <Provider store={store}>
-        <React.StrictMode>
-          <AppContainer/>
-        </React.StrictMode>
+        <AppContainer/>
       </Provider>
     </HashRouter>
   )

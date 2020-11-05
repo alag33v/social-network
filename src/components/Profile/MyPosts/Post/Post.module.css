@@ -1,8 +1,7 @@
 .wrapper {
   display: flex;
-  align-items: center;
   padding-top: 50px;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .image {
@@ -13,14 +12,26 @@
   margin-right: 25px;
 }
 
-.text {
+.post__text {
   font-size: 24px;
   color: rgb(233, 213, 213);
   margin: 0;
 }
 
-.like {
+.post__likesWrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.post__likes {
   font-size: 18px;
-  font-weight: 700;
-  color: rgb(155, 255, 23);
+  font-weight: 500;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.post__likesImg {
+  width: 16px;
+  align-self: center;
 }

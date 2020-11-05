@@ -20,16 +20,6 @@
   position: relative;
 }
 
-/*.wrapper::after {*/
-/*  content: "";*/
-/*  width: 350px;*/
-/*  top: 58%;*/
-/*  left: 50%;*/
-/*  transform: translateX(-75%) rotate(90deg);*/
-/*  border: 1px solid rgb(169, 166, 171);*/
-/*  position: absolute;*/
-/*}*/
-
 .userName {
   font-size: 18px;
   text-decoration: none;

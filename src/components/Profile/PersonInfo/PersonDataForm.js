@@ -6,32 +6,26 @@ import style from '../../common/FormsControls/FormsControls.module.css'
 const ProfileDataForm = ({handleSubmit, profile, error}) => {
   return (
     <form onSubmit={handleSubmit}>
-      <button>Save</button>
-      {error &&
-      <div className={style.formError}>
-        {error}
-      </div>}
-      <div>
-        FullName: – {createField(Input, 'fullName', 'Full name')}
+      <button className={style.btnSave}>Save</button>
+      {error && <div className={style.formError}>{error}</div>}
+      <div className={style.name}>FullName: {createField(Input, 'fullName', 'Full name')}</div>
+      <div className={style.job}>
+        Looking for a job? {createField(Input, 'lookingForAJob', null, null, {type: 'checkbox'})}
       </div>
-      <div>
-        Looking for a job? – {createField(Input, 'lookingForAJob', null, null, {type: 'checkbox'})}
-      </div>
-      <div>
+      <div className={style.jobDescription}>
         Job description: {createField(Textarea, 'lookingForAJobDescription', 'Job description')}
       </div>
-      <div>
+      <div className={style.about}>
         About me: {createField(Textarea, 'aboutMe', 'About me')}
       </div>
-      <h3>Contacts:</h3>
-      <div>{Object.keys(profile.contacts).map(key => {
-        return (
-          <div>
-            <b>{key}:</b>
-            {createField(Input, 'contacts.' + key, key)}
-          </div>
-        )
-      })}</div>
+      <div className={style.contacts}>
+        <h3 className={style.contacts__title}>Contacts:</h3>
+        <div>{Object.keys(profile.contacts).map(key => {
+          return (
+            <div className={style.contacts__social}>{key}: {createField(Input, 'contacts.' + key, key)}</div>
+          )
+        })}</div>
+      </div>
     </form>
   )
 }

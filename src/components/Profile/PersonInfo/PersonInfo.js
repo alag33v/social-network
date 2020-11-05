@@ -27,14 +27,21 @@ const PersonInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProf
 
   return (
     <div className={style.person}>
-      <img className={style.photo} src={profile.photos.large || userImage} alt='Profile photo'/>
-      {isOwner && <input type="file" onChange={onMainPhotoSelected}/>}
-      <PersonStatusWithHooks status={status} updateStatus={updateStatus}/>
-      {editMode
-        ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
-        : <ProfileData profile={profile} isOwner={isOwner} activateEditMode={() => {
-          setEditMode(true)
-        }}/>}
+      <div className={style.person__wrapper}>
+        <img className={style.photo} src={profile.photos.large || userImage} alt=''/>
+        <div>
+          <PersonStatusWithHooks status={status} updateStatus={updateStatus}/>
+          {isOwner && <input className={style.person__input} type="file" onChange={onMainPhotoSelected}/>}
+        </div>
+      </div>
+
+      <div className={style.info}>
+        {editMode
+          ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
+          : <ProfileData profile={profile} isOwner={isOwner} activateEditMode={() => {
+            setEditMode(true)
+          }}/>}
+      </div>
     </div>
   )
 }
@@ -42,21 +49,15 @@ const PersonInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProf
 const ProfileData = ({profile, isOwner, activateEditMode}) => {
   return (
     <div>
-      {isOwner && <button onClick={activateEditMode}>Edit profile</button>}
-      <div>
-        FullName – {profile.fullName}
+      {isOwner && <button className={style.btnEdit} onClick={activateEditMode}>Edit profile</button>}
+      <div className={style.person__name}><span>Name:</span> {profile.fullName}</div>
+      <div className={style.person__job}><span>Looking for a job?</span> {profile.lookingForAJob ? 'Yes' : 'No'}</div>
+      <div className={style.person__jobDescription}>
+        <span>Job description:</span> {profile.lookingForAJob ? profile.lookingForAJobDescription : 'No description'}
       </div>
-      <div>
-        Looking for a job? – {profile.lookingForAJob ? 'Yes' : 'No'}
-      </div>
-      <div>
-        Job description: {profile.lookingForAJob && profile.lookingForAJobDescription || 'No description'}
-      </div>
-      <div>
-        About me: {profile.aboutMe}
-      </div>
-      <div>
-        <h3>Contacts:</h3>
+      <div className={style.person__about}><span>About me:</span> {profile.aboutMe}</div>
+      <div className={style.contacts}>
+        <h3 className={style.contacts__title}>Contacts:</h3>
         <div>{Object.keys(profile.contacts).map(key => {
           return <Contact contactTitle={key} contactValue={profile.contacts[key]} key={key}/>
         })}</div>
@@ -67,9 +68,7 @@ const ProfileData = ({profile, isOwner, activateEditMode}) => {
 
 const Contact = ({contactTitle, contactValue}) => {
   return (
-    <p>
-      <b>{contactTitle}:</b> {contactValue}
-    </p>
+    <div className={style.contacts__social}><span>{contactTitle}:</span> {contactValue}</div>
   )
 }
 

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import style from './PersonInfo.module.css'
 
 const PersonStatusWithHooks = props => {
   const [editMode, setEditMode] = useState(false)
@@ -22,7 +23,7 @@ const PersonStatusWithHooks = props => {
   }
 
   return (
-    <div>
+    <div className={style.status}>
       {editMode
         ? <input type="text" onChange={onStatusChange} onBlur={deactivateEditMode} value={status} autoFocus/>
         : <div>

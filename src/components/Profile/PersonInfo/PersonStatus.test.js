@@ -2,10 +2,6 @@ import React from 'react'
 import {create} from 'react-test-renderer'
 import PersonStatus from './PersonStatus'
 
-function Button(props) {
-  return <button>Nothing to do for now</button>;
-}
-
 describe("PersonStatus Component", () => {
   test("status from props should be in the state", () => {
     const component = create(<PersonStatus status="alageev"/>)
@@ -18,14 +14,6 @@ describe("PersonStatus Component", () => {
     const root = component.root
     const p = root.findByType("p")
     expect(p.innerText).not.toBeNull()
-  })
-
-  test("after creation input shouldn't be displayed", () => {
-    const component = create(<PersonStatus status="alageev"/>)
-    const root = component.root
-    expect(() => {
-      const input = root.findByType("input")
-    }).toThrow()
   })
 
   test("after creation p with status should contains correct status", () => {

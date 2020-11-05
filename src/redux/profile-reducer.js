@@ -9,10 +9,11 @@ const SAVE_PHOTO_SUCCESS = 'SAVE-PHOTO-SUCCESS'
 
 const initialState = {
   posts: [
-    {id: 1, message: 'Harry Potter', likes: 46},
-    {id: 2, message: `Ron Weasley`, likes: 28},
-    {id: 3, message: `Hermione Granger`, likes: 37},
-    {id: 4, message: `Drako Malfoy`, likes: 53}
+    {id: 1, message: 'Не бросай то, что тебе нравится', likes: 31},
+    {id: 2, message: 'Я горжусь тобой', likes: 18},
+    {id: 3, message: 'Весь твой труд не останется без внимания', likes: 78},
+    {id: 4, message: 'Не будь слишком строгим к себе', likes: 40},
+    {id: 4, message: 'Совершать ошибки – совершенно нормально', likes: 38}
   ],
   profile: null,
   status: ''
@@ -39,7 +40,7 @@ const profileReducer = (state = initialState, action) => {
     case DELETE_POST:
       return {
         ...state,
-        posts: state.posts.filter(p => p.id != action.postId)
+        posts: state.posts.filter(p => p.id !== action.postId)
       }
     case SAVE_PHOTO_SUCCESS:
       return {
@@ -73,9 +74,12 @@ export const getStatus = (userId) => {
 
 export const updateStatus = (status) => {
   return async (dispatch) => {
-    const response = await profileAPI.updateStatus(status)
-    if (response.data.resultCode === 0) {
-      dispatch(setStatus(status))
+    try {
+      const response = await profileAPI.updateStatus(status)
+      if (response.data.resultCode === 0) {
+        dispatch(setStatus(status))
+      }
+    } catch (error) {
     }
   }
 }

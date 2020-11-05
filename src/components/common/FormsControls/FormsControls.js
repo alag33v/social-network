@@ -10,7 +10,7 @@ const FormControl = ({input, meta: {touched, error}, children}) => {
       <div className={hasError ? style.error : ''}>
         {children}
       </div>
-      {hasError && <p className={style.errorText}>{error}</p>}
+      {hasError && <div className={style.errorText}>{error}</div>}
     </div>
   )
 }
@@ -36,7 +36,7 @@ export const Input = (props) => {
 export const createField = (component, name, placeholder, validators, props = {}, text = '') => {
   return (
     <div>
-      <Field type="text" component={component} name={name} placeholder={placeholder}
+      <Field className={style.validate} type="text" component={component} name={name} placeholder={placeholder}
              validate={validators}{...props} /> {text}
     </div>
   )

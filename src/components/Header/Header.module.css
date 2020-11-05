@@ -1,3 +1,14 @@
+.wrapper {
+  background-color: #f545a4;
+  padding-bottom: 60px;
+}
+
+.container {
+  max-width: 1450px;
+  padding: 0 25px;
+  margin: 0 auto;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -9,9 +20,33 @@
   width: 60px;
 }
 
+.btnLogout {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  background: transparent;
+  margin-left: 30px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  padding: 5px 20px;
+  transition: 0.4s;
+  outline: none;
+  cursor: pointer;
+}
+
+.btnLogout:hover {
+  color: #f545a4;
+  background-color: #fff;
+}
+
 .login {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
   text-decoration: none;
-  color: #84e1e2;
+  color: #fff;
+  transition: 0.4s;
+}
+
+.login:hover {
+  color: rgb(233, 213, 213);;
 }
